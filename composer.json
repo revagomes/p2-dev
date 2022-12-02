@@ -10,40 +10,101 @@
         "composer/installers": "^2.0",
         "consolidation/robo": "^3",
         "cweagans/composer-patches": "^1.6",
+        "drupal/address": "^1.11",
         "drupal/admin_toolbar": "^3.3",
         "drupal/better_exposed_filters": "^6.0",
+        "drupal/bibcite": "^2.0@beta",
+        "drupal/bibcite_migrate": "^2.0@beta",
+        "drupal/bootstrap_layout_builder": "^2.0",
+        "drupal/bricks": "^2.0",
         "drupal/color_field": "^2.5",
-        "drupal/components": "^2.4",
+        "drupal/components": "^3.0@beta",
+        "drupal/config_filter": "^1.10",
+        "drupal/config_partial_export": "^1.6",
         "drupal/config_split": "^1.9",
+        "drupal/config_update": "^1.7",
+        "drupal/context": "^4.1",
         "drupal/core": "^9.4",
         "drupal/core-composer-scaffold": "^9.4",
+        "drupal/ctools": "^4.0",
+        "drupal/dashboards": "^2.0",
+        "drupal/default_content": "^2.0@alpha",
+        "drupal/eck": "^1.0@beta",
+        "drupal/field_formatter_range": "^1.4",
         "drupal/field_group": "^3.4",
+        "drupal/geofield": "^1.47",
         "drupal/geolocation": "^3.10",
+        "drupal/gin": "^3.0@RC",
+        "drupal/gin_toolbar": "^1.0@RC",
+        "drupal/graphql": "^4.4",
+        "drupal/inline_entity_form": "^1.0@RC",
         "drupal/languagefield": "^1.8",
+        "drupal/layout_builder_component_attributes": "^2.1",
+        "drupal/layout_builder_modal": "^1.1",
+        "drupal/layout_library": "^1.0@beta",
+        "drupal/lbl": "^1.0",
+        "drupal/licenses_vocabulary": "^2.0@alpha",
+        "drupal/location_migration": "^1.0@beta",
+        "drupal/matomo": "^1.19",
+        "drupal/media_entity_browser": "^2.0@alpha",
         "drupal/metatag": "^1.22",
+        "drupal/migrate_tools": "^6.0",
         "drupal/paragraphs": "^1.15",
         "drupal/pathauto": "^1.11",
         "drupal/pbf": "^1.3",
+        "drupal/piwik_noscript": "^1.7",
         "drupal/profile": "^1.7",
+        "drupal/redirect": "^1.8",
+        "drupal/rest_password": "^8.1",
+        "drupal/restui": "^1.21",
         "drupal/rules": "^3.0@alpha",
+        "drupal/search_api": "^1.28",
         "drupal/simple_oauth": "^5.2",
         "drupal/single_content_sync": "^1.3",
+        "drupal/slick": "^2.6",
+        "drupal/slick_views": "^2.6",
+        "drupal/smart_trim": "^2.0",
+        "drupal/tagclouds": "^2.0",
+        "drupal/ui_patterns_field_formatters": "^1.7",
+        "drupal/ui_patterns_layout_builder": "^1.1",
+        "drupal/user_restrictions": "^2.0",
+        "drupal/vartheme_bs5": "^2.0@alpha",
+        "drupal/views_infinite_scroll": "^2.0",
+        "drupal/workflow": "^1.5",
         "drush/drush": "^10.0 | ^11.0",
+        "mustangostang/spyc": "^0.6.3",
+        "nyxtechnology/media_attribution": "1.0",
         "symfony/filesystem": "^4",
+        "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.0",
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
+        "drupal/config_devel": "^1.8",
         "drupal/core-dev": "^9.4",
+        "drupal/devel": "^4.0",
         "drupal/drupal-driver": "^2.1.1",
-        "ec-europa/toolkit": "^9"
+        "drupal/layout_builder_operation_link": "^2.0",
+        "drupal/migrate_devel": "2.0-alpha2",
+        "ec-europa/toolkit": "^9",
+        "phpspec/prophecy-phpunit": "^2.0"
     },
     "scripts": {
         "post-root-package-install": [
             "Subsite\\composer\\SetupWizard::setup"
         ],
         "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
             "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+        ],
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
     "repositories": [
@@ -58,6 +119,32 @@
         {
             "type": "vcs",
             "url": "https://github.com/ec-europa/robo-config"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "nyxtechnology/media_attribution",
+                "version": "1.0",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://github.com/nyxtechnology/media_attribution.git",
+                    "type": "git",
+                    "reference": "8.x-1.x"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "revax-hub/scholarly_lite",
+                "version": "1.0",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://github.com/revax-hub/scholarly_lite.git",
+                    "type": "git",
+                    "reference": "9.x-1.x"
+                }
+            }
         }
     ],
     "extra": {
@@ -71,13 +158,17 @@
         },
         "drupal-scaffold": {
             "allowed-packages": [
-                "drupal/core"
+                "drupal/core",
+                "drupal/ui_patterns_layout_builder"
             ],
             "locations": {
               "web-root": "./web"
             }
         },
         "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
         "enable-patching": true,
         "installer-paths": {
             "web/core": [
@@ -104,6 +195,17 @@
             "web/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
             ]
+        },
+        "patches": {
+            "drupal/core": {
+                "Error empty system.site UUID": "https://www.drupal.org/files/issues/2020-03-28/3047392-17_0.patch"
+            },
+            "drupal/profile" : {
+                "2957256 - Migrate data from Profile2": "https://www.drupal.org/files/issues/2020-05-15/2957256-36.patch"
+            },
+            "drupal/eck": {
+                "2815453 - Add migrations for Drupal 7 ECK to Drupal 8/9": "https://www.drupal.org/files/issues/2020-11-13/eck-migrate-d9-2815453-36.patch"
+            }
         }
     },
     "autoload": {
@@ -127,7 +229,8 @@
             "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpro/grumphp": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "oomphinc/composer-installers-extender": true
         }
     }
 }
