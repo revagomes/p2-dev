@@ -1,0 +1,117 @@
+{
+    "name": "pece-project/drupal-pece",
+    "description": "Platform for Experimental Collabotative Ethnography",
+    "type": "project",
+    "license": "EUPL-1.2",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.1",
+        "composer/installers": "^2.0",
+        "consolidation/robo": "^3",
+        "cweagans/composer-patches": "^1.6",
+        "drupal/core": "^9.4",
+        "drupal/core-composer-scaffold": "^9.4",
+        "drush/drush": "^10.0 | ^11.0",
+        "symfony/filesystem": "^4",
+        "webflo/drupal-finder": "^1.0",
+        "webmozart/path-util": "^2.3"
+    },
+    "require-dev": {
+        "drupal/core-dev": "^9.4",
+        "drupal/drupal-driver": "^2.1.1",
+        "ec-europa/toolkit": "^9"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "Subsite\\composer\\SetupWizard::setup"
+        ],
+        "post-install-cmd": [
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ec-europa/task-runner"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ec-europa/robo-config"
+        }
+    ],
+    "extra": {
+        "artifacts": {
+            "openeuropa/oe_theme": {
+                "dist": {
+                    "url": "https://github.com/{name}/releases/download/{pretty-version}/{project-name}-{pretty-version}.tar.gz",
+                    "type": "tar"
+                }
+            }
+        },
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "drupal/core"
+            ],
+            "locations": {
+              "web-root": "./web"
+            }
+        },
+        "composer-exit-on-patch-failure": true,
+        "enable-patching": true,
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
+        }
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/SetupWizard.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenEuropa\\Site\\Tests\\": "./tests/"
+        }
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpro/grumphp": true,
+            "phpstan/extension-installer": true
+        }
+    }
+}
