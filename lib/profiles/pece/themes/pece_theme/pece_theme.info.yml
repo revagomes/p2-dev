@@ -7,8 +7,8 @@ engine: twig
 type: theme
 base theme: vartheme_bs5
 
-dependencies:
-   - drupal:components
+# dependencies:
+#    - components
 
 regions:
   navbar_branding: Navbar branding
