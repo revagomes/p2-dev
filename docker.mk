@@ -1,6 +1,6 @@
 include .env
 
-.PHONY: up down stop prune ps shell drush logs
+.PHONY: up down stop prune ps shell shell-node drush drupal exec logs
 
 default: up
 
@@ -45,6 +45,7 @@ ps:
 shell:
 	docker exec -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_web_1' --format "{{ .ID }}") sh
 
+## shell-node	:	Access `node` container via shell.
 shell-node:
 	docker exec -ti --user root -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_front_node' --format "{{ .ID }}") sh
 
