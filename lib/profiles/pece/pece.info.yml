@@ -5,7 +5,7 @@ core_version_requirement: ^8 || ^9 || ^10
 version: 2.0.0-alpha
 
 distribution:
-  name: PECE
+  name: Platform of Experimental Collaborative Ethnography
   langcode: en
 
 # Modules to install to support the profile.
@@ -92,6 +92,11 @@ dependencies:
   - ctools
   - options
   - path
+  - pece_analytics
+  - pece_artifacts
+  - pece_artifacts_fieldsite
+  - pece_essay
+  - pece_subst_logic
   - views
 
 themes:
