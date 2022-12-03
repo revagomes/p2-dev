@@ -1,0 +1,100 @@
+name: PECE
+type: profile
+description: 'Platform of Experimental Collaborative Ethnography'
+core_version_requirement: ^8 || ^9 || ^10
+version: 2.0.0-alpha
+
+distribution:
+  name: PECE
+  langcode: en
+
+# Modules to install to support the profile.
+install:
+  - user
+  - block_content
+  - breakpoint
+  - color
+  - color_field
+  - config
+  - comment
+  - components
+  - contextual
+  - content_moderation
+  - content_translation
+  - contact
+  - ctools
+  - dblog
+  - field_group
+  - field_ui
+  - geolocation
+  - help
+  - history
+  - image
+  - layout_builder
+  - paragraphs
+  - paragraphs_type_permissions
+  - quickedit
+  - rules
+  - rest
+  - taxonomy
+  - shortcut
+  - toolbar
+  - file
+  - rdf
+  - views
+  - views_ui
+  - editor
+  - ckeditor
+  - config_split
+  - better_exposed_filters
+  - languagefield
+  - nyx_graphql
+  - nyx_recaptcha
+  - graphql_people
+  - pathauto
+  - pbf
+  - pece_access
+  - pece_subst_logic
+  - pece_project
+  - pece_analytics
+  - pece_essay
+  - pece_annotations
+  - pece_artifacts
+  - pece_artifacts_fieldsite
+  - pece_oauth
+  - pece_artifacts_audio
+  - pece_artifacts_image
+  - pece_artifacts_text
+  - pece_artifacts_video
+  - pece_artifacts_website
+  - pece_artifacts_pdf
+  - pece_artifacts_bundle
+  - pece_rules_webhook
+  - pece_n8n
+  - profile
+  - simple_oauth
+  - admin_toolbar
+  - mysql
+  - metatag
+  - metatag_dc
+  - metatag_dc_advanced
+  - metatag_open_graph
+  - metatag_verification
+  - metatag_views
+  - media_library
+  - single_content_sync
+  - responsive_image
+
+dependencies:
+  - node
+  - block
+  - components
+  - ctools
+  - options
+  - path
+  - views
+
+themes:
+  - claro
+  - gin
+  - pece_theme

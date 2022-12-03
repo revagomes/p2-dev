@@ -1,0 +1,15 @@
+extend type Query {
+  peceAnnotations (
+    offset: Int = 0
+    limit: Int = 10
+    filters: [Filter] = []
+  ): PeceAnnotationConnection!
+
+  peceAnnotation (id: Int!) : PeceAnnotation
+}
+
+extend type Mutation {
+  createPeceAnnotation(data: AnnotationInput):PeceAnnotation
+  deletePeceAnnotation(id: Int): PeceAnnotation
+  updatePeceAnnotation(id:Int, data: AnnotationInput): PeceAnnotation
+}

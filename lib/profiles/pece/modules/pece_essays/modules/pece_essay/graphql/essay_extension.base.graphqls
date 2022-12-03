@@ -1,0 +1,44 @@
+type PeceEssay implements NodeInterface {
+  id: Int!
+  title: String!
+  uuid: String!
+  body: String
+  contents: [EssayContents]
+  contributors: [User]
+  tags: [EssayTags]
+  thumbnail: Thumbnail
+  uri: String
+  author: User
+  created: String
+}
+
+type PeceEssayConnection {
+  total: Int!
+  items: [PeceEssay!]
+}
+
+input EssayInput {
+  title: String!
+  body: String
+  uri: String
+  tags: [Int]
+  contents: [Int]
+  thumbnail: [Int]
+}
+
+type EssayContents {
+  id: Int!
+  title: String
+  type: String
+  audio: Audio
+  image: Image
+  link: String
+  video: Video
+  content: [EssayContents]
+}
+
+type EssayTags {
+  id: Int!
+  title: String
+  type: String
+}

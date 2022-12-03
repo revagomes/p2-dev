@@ -1,0 +1,15 @@
+extend type Query {
+  peceEssays (
+    offset: Int = 0
+    limit: Int = 10
+    filters: [Filter] = []
+  ): PeceEssayConnection!
+
+  peceEssay (id: Int!) : PeceEssay
+}
+
+extend type Mutation {
+  createPeceEssay(data: EssayInput):PeceEssay
+  deletePeceEssay(id: Int): PeceEssay
+  updatePeceEssay(id:Int, data: EssayInput): PeceEssay
+}

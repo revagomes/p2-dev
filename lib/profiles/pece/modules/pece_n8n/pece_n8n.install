@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the n8n module.
+ */
+
+use Drupal\Component\Utility\Random;
+use Drupal\consumers\Entity\Consumer;
+use Drupal\user\Entity\User as UserPECE;
+
+/**
+ * Implements hook_install().
+ */
+function pece_n8n_install() {
+  $consumers = \Drupal::entityTypeManager()->getStorage('consumer')
+    ->loadByProperties(['label' => 'n8n']);
+  $consumers ? reset($consumers) : FALSE;
+  if(!$consumers)
+    Consumer::create([
+      'label' => 'n8n',
+      'description' => 'This is the n8n consumer. This was created programmatically when the n8n module was first installed. Feel free to edit, or delete this.',
+      'is_default' => FALSE,
+      'confidential' => TRUE,
+      'third_party' => TRUE,
+      'secret' => getenv('N8N_CLIENT_SECRET') ?? Random::string(10),
+    ])->save();
+
+  //@TODO: Get values from .env, but getenv doesn't work here
+  if (!user_load_by_name('n8n'))
+    UserPECE::create([
+      'name' => 'n8n',
+      'mail' => 'n8n@pece.automation',
+      'roles' => ['authenticated', 'r_api'],
+      'status' => TRUE,
+      'pass' => Random::string(10),
+    ])->save();
+}
