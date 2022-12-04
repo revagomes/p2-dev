@@ -34,5 +34,7 @@ build-dev:
 	docker exec -t $(shell docker ps --filter name='^/$(PROJECT_NAME)_web' --format "{{ .ID }}") bash -c 'vendor/bin/drush updb -y'
 	@echo "Finish build $(PROJECT_NAME)"
 
-distro-install:
-	docker-compose -f services-drupal.yml run --rm install
+site-install:
+	@echo "Starting $(PROJECT_NAME) install phase..."
+	docker exec -t $(shell docker ps --filter name='^/$(PROJECT_NAME)_web' --format "{{ .ID }}") bash -c 'vendor/bin/drush si -y'
+	@echo "Finish $(PROJECT_NAME) Install phase"
