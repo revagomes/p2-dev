@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+id: pece_profile_main
+label: profile
+display_label: Profile
+multiple: false
+registration: true
+roles:
+  authenticated: authenticated
+  contributor: contributor
+  researcher: researcher
+  administrator: administrator
+allow_revisions: false
+new_revision: false
