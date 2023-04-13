@@ -2,9 +2,49 @@
     "name": "pece-project/drupal-pece",
     "description": "Platform for Experimental Collabotative Ethnography",
     "type": "project",
-    "license": "EUPL-1.2",
+    "license": "GNU GENERAL PUBLIC LICENSE",
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ec-europa/task-runner"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ec-europa/robo-config"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "nyxtechnology/media_attribution",
+                "version": "1.0",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://github.com/nyxtechnology/media_attribution.git",
+                    "type": "git",
+                    "reference": "8.x-1.x"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "revax-hub/scholarly_lite",
+                "version": "1.0",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://github.com/revax-hub/scholarly_lite.git",
+                    "type": "git",
+                    "reference": "9.x-1.x"
+                }
+            }
+        }
+    ],
     "require": {
         "php": ">=8.1",
         "composer/installers": "^2.0",
@@ -107,46 +147,6 @@
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/ec-europa/task-runner"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/ec-europa/robo-config"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "nyxtechnology/media_attribution",
-                "version": "1.0",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://github.com/nyxtechnology/media_attribution.git",
-                    "type": "git",
-                    "reference": "8.x-1.x"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "revax-hub/scholarly_lite",
-                "version": "1.0",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://github.com/revax-hub/scholarly_lite.git",
-                    "type": "git",
-                    "reference": "9.x-1.x"
-                }
-            }
-        }
-    ],
     "extra": {
         "artifacts": {
             "openeuropa/oe_theme": {
