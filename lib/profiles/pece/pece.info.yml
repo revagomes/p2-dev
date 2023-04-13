@@ -104,4 +104,4 @@ dependencies:
 themes:
   - claro
   - gin
-  - pece_theme
+#  - pece_theme
