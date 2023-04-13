@@ -52,24 +52,6 @@ install:
   - graphql_people
   - pathauto
   - pbf
-  - pece_access
-  - pece_subst_logic
-  - pece_project
-  - pece_analytics
-  - pece_essay
-  - pece_annotations
-  - pece_artifacts
-  - pece_artifacts_fieldsite
-  - pece_oauth
-  - pece_artifacts_audio
-  - pece_artifacts_image
-  - pece_artifacts_text
-  - pece_artifacts_video
-  - pece_artifacts_website
-  - pece_artifacts_pdf
-  - pece_artifacts_bundle
-  - pece_rules_webhook
-  - pece_n8n
   - profile
   - simple_oauth
   - admin_toolbar
@@ -83,6 +65,24 @@ install:
   - media_library
   - single_content_sync
   - responsive_image
+#  - pece_access
+#  - pece_subst_logic
+#  - pece_project
+#  - pece_analytics
+#  - pece_essay
+#  - pece_annotations
+#  - pece_artifacts
+#  - pece_artifacts_fieldsite
+#  - pece_oauth
+#  - pece_artifacts_audio
+#  - pece_artifacts_image
+#  - pece_artifacts_text
+#  - pece_artifacts_video
+#  - pece_artifacts_website
+#  - pece_artifacts_pdf
+#  - pece_artifacts_bundle
+#  - pece_rules_webhook
+#  - pece_n8n
 
 dependencies:
   - node
