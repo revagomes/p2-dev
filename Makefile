@@ -2,7 +2,7 @@ include docker.mk
 
 .PHONY: test build build-dev distro-install
 
-DRUPAL_VER ?= 9
+DRUPAL_VER ?= 8
 PHP_VER ?= 8.1
 FILE_MATCH ?=
 
