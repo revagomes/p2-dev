@@ -43,7 +43,7 @@ install:
   - views
   - views_ui
   - editor
-  - ckeditor
+  - ckeditor5
   - config_split
   - better_exposed_filters
   - languagefield
