@@ -40,7 +40,6 @@ install:
   - shortcut
   - toolbar
   - file
-  - rdf
   - views
   - views_ui
   - editor
