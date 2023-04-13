@@ -85,17 +85,20 @@ install:
 #  - pece_n8n
 
 dependencies:
+  - action
   - node
   - block
+  - block_content
   - components
   - ctools
+  - datetime
+  - file
+  - help
+  - image
   - options
   - path
-  - pece_analytics
-  - pece_artifacts
-  - pece_artifacts_fieldsite
-  - pece_essay
-  - pece_subst_logic
+  - system
+  - user
   - views
 
 themes:
