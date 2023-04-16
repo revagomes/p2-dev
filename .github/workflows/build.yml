@@ -27,7 +27,7 @@ jobs:
 
       - name: Get composer cache directory
         id: composercache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+        run: echo "{dir}::{$(composer config cache-files-dir)} >> $GITHUB_OUTPUT"
 
       - name: Cache composer dependencies
         uses: actions/cache@v2
@@ -52,14 +52,6 @@ jobs:
           PWD: "/home/runner/work/p2-dev/p2-dev"
           DOCUMENT_ROOT: "${PWD}/web"
 
-      - name: List files in work dir
+      - name: Build Dev in Web container
         run: |
-          ls -lah
-
-      - name: List files in web dir
-        run: |
-          ls -lah web
-
-      - name: List files in Web container
-        run: |
-          docker-compose exec -T web bash -c "ls -lah"
+          docker-compose exec -T web bash -c "./vendor/bin/run tk-bdev"
