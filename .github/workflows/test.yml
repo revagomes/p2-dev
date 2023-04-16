@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        drupal-core: ['9.5.x', '10.x']
+        drupal-core: ['9.5.x', '10.0.x']
         php-versions: ['8.0', '8.1']
     steps:
       - name: Checkout Repo
@@ -44,6 +44,10 @@ jobs:
       - name: Install Drupal core dependencies
         run: |
           composer --no-interaction --no-progress --prefer-dist --optimize-autoloader install
+      - name: Install module dependencies
+        run: |
+          composer --no-interaction --no-progress require \
+            drupal/vartheme_bs5:^2.0@alpha
       - name: Install Coder module
         run: |
           composer --dev --no-interaction --no-progress require \
