@@ -19,17 +19,6 @@ jobs:
         with:
           path: "."
 
-      - name: Docker Compose Action
-        uses: isbang/compose-action@v1.4.1
-        with:
-          compose-file: "./docker-compose.yml"
-          down-flags: "--volumes"
-          services: |
-            mysql
-            web
-        env:
-          PWD: "/home/p2-dev"
-
       - name: Setup PHP, with composer and extensions
         uses: shivammathur/setup-php@v2
         with:
@@ -51,9 +40,17 @@ jobs:
         run: |
           composer --no-interaction --no-progress --prefer-dist --optimize-autoloader install
 
-      - name: List files in work dir
-        run: |
-          ls -lah
+      - name: Docker Compose Action
+        uses: isbang/compose-action@v1.4.1
+        with:
+          compose-file: "./docker-compose.yml"
+          up-flags: "--detach"
+          down-flags: "--volumes"
+          services: |
+            mysql
+            web
+        env:
+          PWD: "/home/p2-dev"
 
       - name: List files in Web container
         run: |
