@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout Action
         uses: actions/checkout@v3
+        with:
+          path: "."
 
       - name: Docker Compose Action
         uses: isbang/compose-action@v1.4.1
@@ -49,9 +51,9 @@ jobs:
         run: |
           composer --no-interaction --no-progress --prefer-dist --optimize-autoloader install
 
-      - name: List files in Web container
+      - name: Install Drupal core dependencies in Web container
         run: |
-          docker-compose exec -T web bash -c "pwd"
+          docker-compose exec -T web bash -c "composer --no-interaction --no-progress --prefer-dist --optimize-autoloader install"
 
       - name: List files in Web container
         run: |
