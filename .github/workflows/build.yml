@@ -11,7 +11,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        drupal-core: ['9.5.x', '10.0.x']
         php-versions: ['8.1', '8.2']
     steps:
       - name: Checkout Action
@@ -32,7 +31,7 @@ jobs:
       - name: Cache composer dependencies
         uses: actions/cache@v2
         with:
-          path: ${{ steps.composercache.outputs.dir }}
+          path: ${GITHUB_OUTPUT}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
