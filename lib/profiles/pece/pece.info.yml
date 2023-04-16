@@ -2,7 +2,7 @@ name: PECE
 type: profile
 description: 'Platform of Experimental Collaborative Ethnography'
 core_version_requirement: ^8 || ^9 || ^10
-version: 2.0.0-alpha
+#version: 2.0.0-alpha
 
 distribution:
   name: Platform of Experimental Collaborative Ethnography
@@ -85,21 +85,21 @@ install:
 #  - pece_n8n
 
 dependencies:
-  - action
-  - node
-  - block
-  - block_content
-  - components
-  - ctools
-  - datetime
-  - file
-  - help
-  - image
-  - options
-  - path
-  - system
-  - user
-  - views
+  - drupal:action
+  - drupal:node
+  - drupal:block
+  - drupal:block_content
+  - drupal:components
+  - drupal:ctools
+  - drupal:datetime
+  - drupal:file
+  - drupal:help
+  - drupal:image
+  - drupal:options
+  - drupal:path
+  - drupal:system
+  - drupal:user
+  - drupal:views
 
 themes:
   - claro
