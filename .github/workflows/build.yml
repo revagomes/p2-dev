@@ -51,4 +51,16 @@ jobs:
 
       - name: List files in Web container
         run: |
-          docker-compose exec -T web bash -c "ls -lah"
+          docker-compose exec -T web bash -c "pwd"
+
+      - name: List files in Web container
+        run: |
+          docker-compose exec -T web bash -c "ls -lah web"
+
+      - name: Build Dev Action
+        run: |
+          docker-compose exec -T web bash -c "./vendor/bin/run tk-bdev"
+
+      - name: Install Drupal Action
+        run: |
+          docker-compose exec -T web bash -c "./vendor/bin/run tk-iclean"
