@@ -32,7 +32,7 @@ jobs:
       - name: Cache composer dependencies
         uses: actions/cache@v2
         with:
-          path: ${{ env.composer_cache_dir }}
+          path: ${{ steps.composercache.outputs.composer_cache_dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
