@@ -17,6 +17,17 @@ jobs:
       - name: Checkout Action
         uses: actions/checkout@v3
 
+      - name: Docker Compose Action
+        uses: isbang/compose-action@v1.4.1
+        with:
+          compose-file: "./docker-compose.yml"
+          down-flags: "--volumes"
+          services: |
+            mysql
+            web
+          env:
+            PWD: "/home/p2-dev"
+
       - name: Setup PHP, with composer and extensions
         uses: shivammathur/setup-php@v2
         with:
@@ -38,10 +49,6 @@ jobs:
         run: |
           composer --no-interaction --no-progress --prefer-dist --optimize-autoloader install
 
-      - name: Build Dev Action
+      - name: List files in Web container
         run: |
-          ./vendor/bin/run tk-bdev
-
-      - name: Install Drupal Action
-        run: |
-          ./vendor/bin/run tk-iclean
+          composer exec web ls -lah
