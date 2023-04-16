@@ -55,3 +55,7 @@ jobs:
       - name: Build Dev in Web container
         run: |
           docker-compose exec -T web bash -c "./vendor/bin/run tk-bdev"
+
+      - name: Install Drupal in Web container
+        run: |
+          docker-compose exec -T web bash -c "./vendor/bin/run tk-iclean"
