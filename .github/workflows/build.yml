@@ -51,4 +51,4 @@ jobs:
 
       - name: List files in Web container
         run: |
-          composer exec web ls -lah
+          docker-compose exec -T web bash -c "ls -lah"
