@@ -50,7 +50,16 @@ jobs:
             mysql
             web
         env:
-          PWD: "/home/p2-dev"
+          PWD: "./"
+          DOCUMENT_ROOT: "${PWD}/web"
+
+      - name: List files in work dir
+        run: |
+          ls -lah
+
+      - name: List files in web dir
+        run: |
+          ls -lah web
 
       - name: List files in Web container
         run: |
