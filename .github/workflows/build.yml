@@ -44,13 +44,12 @@ jobs:
         uses: isbang/compose-action@v1.4.1
         with:
           compose-file: "./docker-compose.yml"
-          up-flags: "--no-recreate"
           down-flags: "--volumes"
           services: |
             mysql
             web
         env:
-          PWD: "./"
+          PWD: "/home/runner/work/p2-dev/p2-dev"
           DOCUMENT_ROOT: "${PWD}/web"
 
       - name: List files in work dir
