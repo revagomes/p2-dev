@@ -17,15 +17,6 @@ jobs:
       - name: Checkout Action
         uses: actions/checkout@v3
 
-      - name: Docker Compose Action
-        uses: isbang/compose-action@v1.4.1
-        with:
-          compose-file: "./docker-compose.yml"
-          down-flags: "--volumes"
-          services: |
-            mysql
-            web
-
       - name: Setup PHP, with composer and extensions
         uses: shivammathur/setup-php@v2
         with:
