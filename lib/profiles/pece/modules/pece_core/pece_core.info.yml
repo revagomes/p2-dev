@@ -7,12 +7,12 @@ version: 8.x-1.0
 project: 'pece_core'
 type: module
 dependencies:
-  - entity_reference_revisions
+  - address
+  - color_field
+    entity_reference_revisions
+  - geolocation
   - licenses_vocabulary
   - languagefield
   - paragraphs
-  - geolocation
-  - profile
-  - color_field
-  - address
   - pbf
+  - profile
