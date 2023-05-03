@@ -24,6 +24,7 @@ install:
   - contact
   - ctools
   - dblog
+  - entity_browser
   - field_group
   - field_ui
   - geolocation
