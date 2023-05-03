@@ -25,6 +25,7 @@ install:
   - ctools
   - dblog
   - entity_browser
+  - extra_field
   - field_group
   - field_ui
   - geolocation
