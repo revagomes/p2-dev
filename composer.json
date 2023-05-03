@@ -70,6 +70,7 @@
         "drupal/dashboards": "^2.0",
         "drupal/default_content": "^2.0@alpha",
         "drupal/eck": "^1.0@beta",
+        "drupal/entity_browser": "^2.9",
         "drupal/field_formatter_range": "^1.4",
         "drupal/field_group": "^3.4",
         "drupal/geofield": "^1.47",
