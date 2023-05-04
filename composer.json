@@ -57,7 +57,7 @@
         "drupal/bibcite_migrate": "^2.0@beta",
         "drupal/bootstrap_layout_builder": "^2.0",
         "drupal/bricks": "^2.0",
-        "drupal/color_field": "^2.5",
+        "drupal/color_field": "^3.0",
         "drupal/components": "^3.0@beta",
         "drupal/config_filter": "^1.10",
         "drupal/config_partial_export": "^1.6",
